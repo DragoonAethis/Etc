@@ -43,7 +43,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "-o",
         "--output",
-        default="qdirstat.cache",
+        default="qdirstat.cache.gz",
         help="Name of the file to write the cache to.",
     )
     return parser.parse_args()
@@ -73,10 +73,10 @@ def generate_path_info(path: str, stat: stat_result) -> str:
     blocks, links = "", ""
 
     if stat.st_blocks > 0 and stat.st_blocks * 512 < stat.st_size:
-        blocks = "\t" + str(stat.st_blocks)
+        blocks = "\tblocks:" + str(stat.st_blocks)
 
     if stat.st_nlink > 1:
-        links = "\t" + str(stat.st_nlink)
+        links = "\tlinks:" + str(stat.st_nlink)
 
     # Long time no see, %-format! This is ~10% faster when CPU-bound
     # than str.format/f-strings and works on all Python 3 versions.
