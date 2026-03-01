@@ -59,7 +59,7 @@ def print_progress(executor):
 def process_collection():
     valid_filenames = []
 
-    with ProcessPoolExecutor() as e:
+    with ProcessPoolExecutor(max_workers=4) as e:
         counter = 0
         t = threading.Thread(target=print_progress, args=(e, ))
         for fname in glob.glob("*"):
