@@ -13,7 +13,7 @@ from concurrent.futures import ProcessPoolExecutor
 DELETE_ORIGINAL = True
 
 # File extensions on which we allow processing
-EXTENSIONS = {'.jpg', '.jpeg', '.webp', '.png', '.ppm'}
+EXTENSIONS = {'.jpg', '.jpeg', '.webp', '.png', '.ppm', '.gif'}
 LOSSLESS_EXTS = {'.jpg', '.jpeg'}
 
 # Encoder "effort" setting, higher = slower, but smaller at the same quality level.
